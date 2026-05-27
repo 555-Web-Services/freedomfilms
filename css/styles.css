@@ -3259,7 +3259,7 @@ img.u-pull-left {
 
 @media screen and (max-width: 800px) {
     .s-header {
-        --logo-width : 72px;
+        --logo-width : 144px;
         top          : var(--vspace-0_25);
     }
 
