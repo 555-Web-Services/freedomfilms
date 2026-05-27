@@ -8,69 +8,69 @@
  * TOC:
  *
  * # SETTINGS
- *      ## fonts 
- *      ## colors
- *      ## spacing and typescale
- *      ## grid variables
+ * ## fonts 
+ * ## colors
+ * ## spacing and typescale
+ * ## grid variables
  * # NORMALIZE
  * # BASE SETUP
  * # GRID
- *      ## large screen devices
- *      ## medium screen devices 
- *      ## tablet devices 
- *      ## mobile devices 
- *      ## small screen devices
- *      ## additional column stackpoints
+ * ## large screen devices
+ * ## medium screen devices 
+ * ## tablet devices 
+ * ## mobile devices 
+ * ## small screen devices
+ * ## additional column stackpoints
  * # UTILITY CLASSES
  * # TYPOGRAPHY
- *      ## base type styles
- *      ## additional typography & helper classes
- *      ## lists
- *      ## spacing
+ * ## base type styles
+ * ## additional typography & helper classes
+ * ## lists
+ * ## spacing
  * # PRELOADER
- *      ## page loaded
+ * ## page loaded
  * # FORM
- *      ## style placeholder text
- *      ## change autocomplete styles in Chrome
+ * ## style placeholder text
+ * ## change autocomplete styles in Chrome
  * # BUTTONS
  * # TABLE
  * # COMPONENTS
- *      ## pagination
- *      ## alert box 
- *      ## skillbars
- *      ## stats tabs
+ * ## pagination
+ * ## alert box 
+ * ## skillbars
+ * ## stats tabs
  * # PROJECT-WIDE SHARED STYLES
- *      ## theme-specific typography classes
- *      ## media classes
- *      ## section header
- *      ## list block
- *      ## swiper overrides
+ * ## theme-specific typography classes
+ * ## media classes
+ * ## section header
+ * ## list block
+ * ## swiper overrides
  * # PAGE WRAP
  * # SITE HEADER
- *      ## logo
- *      ## main navigation
- *      ## header social
- *      ## mobile menu toggle
+ * ## logo
+ * ## main navigation
+ * ## header social
+ * ## mobile menu toggle
  * # INTRO
- *      ## intro background
- *      ## intro content
- *      ## intro scroll down
- *      ## intro transitions
+ * ## intro background
+ * ## intro content
+ * ## intro scroll down
+ * ## intro transitions
  * # ABOUT
  * # SERVICES
  * # PORTFOLIO
- *      ## bricks masonry 
- *      ## masonry entries 
- *      ## modal popup
+ * ## bricks masonry 
+ * ## masonry entries 
+ * ## modal popup
  * # CLIENTS
  * # TESTIMONIALS
- *      ## testimonial slider 
+ * ## testimonial slider 
  * # FOOTER
- *      ## contact btn
- *      ## subscription form
- *      ## footer social
- *      ## copyright
- *      ## go top
+ * ## contact btn
+ * ## subscription form
+ * ## footer social
+ * ## copyright
+ * ## go top
  *
  * ------------------------------------------------------------------ */
 
@@ -593,15 +593,15 @@ textarea {
  * # GRID v4.0.0
  *
  *
- *   -----------------------------------------------------------------
+ * -----------------------------------------------------------------
  * - Grid breakpoints are based on MAXIMUM WIDTH media queries, 
- *   meaning they apply to that one breakpoint and ALL THOSE BELOW IT.
+ * meaning they apply to that one breakpoint and ALL THOSE BELOW IT.
  * - Grid columns without a specified width will automatically layout 
- *   as equal width columns.
+ * as equal width columns.
  *
  * - BLOCK GRID columns(columns inside BLOCK GRID containers) are 
- *   equally-sized columns define at parent/row level. 
- *   A BLOCK GRID container's class attribute value begins with "block-".
+ * equally-sized columns define at parent/row level. 
+ * A BLOCK GRID container's class attribute value begins with "block-".
  *
  * ------------------------------------------------------------------- */
 
@@ -1371,7 +1371,7 @@ h6,
     font-weight            : 600;
     color                  : var(--color-text-dark);
     font-variant-ligatures : common-ligatures;
-    text-rendering         : optimizeLegibility;
+    text-rendering          : optimizeLegibility;
     letter-spacing         : -.010em;
 }
 
@@ -1633,7 +1633,7 @@ hr.fancy {
 }
 
 hr.fancy::before {
-    content        : "*****";
+    content        : "******";
     letter-spacing : .3em;
 }
 
@@ -1865,13 +1865,11 @@ img,
 
 /* =================================================================== 
  * # PRELOADER
- * 
- * 
- * -------------------------------------------------------------------
+ * * * -------------------------------------------------------------------
  * - markup:
  *
  * <div id="preloader">
- *    <div id="loader"></div>
+ * <div id="loader"></div>
  * </div>
  *
  * ------------------------------------------------------------------- */
@@ -2317,9 +2315,9 @@ td:last-child {
     flex-flow       : row wrap;
     justify-content : center;
     list-style      : none;
-    margin-left     : 0;
-    position        : relative;
-    padding         : 0 6rem;
+    margin-left      : 0;
+    position         : relative;
+    padding          : 0 6rem;
 }
 
 .pgn ul li {
@@ -2378,9 +2376,9 @@ td:last-child {
     text-shadow     : none;
     color           : transparent;
     transition      : all, .3s, ease-in-out;
-    position        : absolute;
-    top             : 50%;
-    transform       : translate(0, -50%);
+    position         : absolute;
+    top              : 50%;
+    transform        : translate(0, -50%);
 }
 
 .pgn__prev:focus,
@@ -3259,7 +3257,7 @@ img.u-pull-left {
 
 @media screen and (max-width: 800px) {
     .s-header {
-        --logo-width : 144px;
+        --logo-width : 108px; /* MODIFICADO: 3 veces más grande que los 36px originales */
         top          : var(--vspace-0_25);
     }
 
@@ -3274,13 +3272,15 @@ img.u-pull-left {
         width            : 100%;
         height           : var(--header-height);
         background-color : transparent;
+        display          : flex;
+        align-items      : center;
     }
 
     .s-header__logo {
         position  : absolute;
         left      : 0;
         top       : 50%;
-        transform : translate(4rem, -50%);
+        transform : translate(3rem, -50%); /* Ajustado para dar holgura al logo extendido */
     }
 
     .s-header__nav {
@@ -3351,7 +3351,7 @@ img.u-pull-left {
 
 @media screen and (max-width: 400px) {
     .s-header__logo {
-        transform : translate(7vw, -50%);
+        transform : translate(5vw, -50%); /* Mayor adaptabilidad en pantallas compactas */
     }
 
     .s-header__nav {
@@ -4307,10 +4307,10 @@ img.u-pull-left {
 }
 
 .s-testimonials__avatar {
-    width         : var(--vspace-1_75);
-    height        : var(--vspace-1_75);
+    width          : var(--vspace-1_75);
+    height         : var(--vspace-1_75);
     border-radius : 100%;
-    outline       : none;
+    outline        : none;
     position      : absolute;
     top           : 0;
     left          : 0;
