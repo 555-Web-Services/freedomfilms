@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>Portafolio - FreedomFilms</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        body { background-color: #0f0f0f; color: #ffffff; margin: 0; padding: 0; }
+        
+        .portfolio-grid { display: table; width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 30px; margin-top: 40px; }
+        .portfolio-col { display: table-cell; width: 33.333%; vertical-align: top; }
+        
+        .album-card { background: #161616; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.4); cursor: pointer; transition: transform 0.3s ease; }
+        .album-card:hover { transform: translateY(-5px); }
+        .album-img-wrapper { height: 260px; overflow: hidden; background: #222; }
+        .album-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Estilos del Lightbox */
+        .lightbox-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; text-align: center; }
+        .lightbox-container { display: block; position: relative; max-width: 80%; margin: 60px auto 0; text-align: center; }
+        .lightbox-media { max-width: 100%; max-height: 70vh; box-shadow: 0 0 20px rgba(0,0,0,0.8); border-radius: 4px; }
+        
+        /* Navegación Lateral */
+        .lightbox-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.1); color: white; border: none; font-size: 30px; padding: 15px 25px; cursor: pointer; border-radius: 50%; transition: background 0.3s; }
+        .lightbox-btn:hover { background: var(--color-1); }
+        .lightbox-prev { left: -80px; }
+        .lightbox-next { right: -80px; }
+        .lightbox-close { position: absolute; top: -50px; right: 0; color: #fff; font-size: 35px; cursor: pointer; background: none; border: none; }
+        
+        .lightbox-caption { margin-top: 15px; font-size: 18px; color: #ffffff; font-weight: 500; }
+        .lightbox-counter { font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 5px; }
+
+        @media (max-width: 768px) {
+            .portfolio-col { display: block; width: 100%; margin-bottom: 30px; }
+            .lightbox-btn { padding: 10px 15px; font-size: 20px; }
+            .lightbox-prev { left: -20px; }
+            .lightbox-next { right: -20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="s-header" style="background-color: #161616; position: fixed; top: 0; box-shadow: 0 2px 10px rgba(0,0,0,0.3); z-index: 1000;">
+        <div class="row s-header__inner">
+            <div class="s-header__block">
+                <div class="s-header__logo">
+                    <a class="logo" href="index.html">
+                        <img src="LOGO FREEDOM SGV.svg" alt="Homepage FreedomFilms">
+                    </a>
+                </div>
+                <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+            </div>
+            <nav class="s-header__nav">
+                <ul class="s-header__menu-links">
+                    <li><a href="index.html" style="color: rgba(255,255,255,0.6);">Intro</a></li>
+                    <li><a href="acerca.html" style="color: rgba(255,255,255,0.6);">Acerca de Freedom</a></li>
+                    <li class="current"><a href="portafolio.html" style="color: #ffffff;">Trabajos</a></li>
+                    <li><a href="contacto.html" style="color: rgba(255,255,255,0.6);">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section style="padding: 160px 0 100px 0;">
+        <div class="row" style="text-align: center; margin-bottom: 40px;">
+            <div class="column lg-12">
+                <h3 style="color: var(--color-1); letter-spacing: 3px; font-size: 13px; text-transform: uppercase;">Galería</h3>
+                <h2 style="font-size: 42px; font-weight: 700; margin: 10px 0 0 0;">Álbumes Audiovisuales</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="portfolio-grid">
+                
+                <div class="portfolio-col">
+                    <div class="album-card" onclick="openAlbum('boda')">
+                        <div class="album-img-wrapper">
+                            <img src="images/portfolio/boda.jpg" alt="Boda">
+                        </div>
+                        <div style="padding: 20px;">
+                            <h4 style="color:#fff; margin:0; font-size:18px;">Sofía & Alejandro (Boda)</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-col">
+                    <div class="album-card" onclick="openAlbum('musical')">
+                        <div class="album-img-wrapper">
+                            <img src="images/portfolio/musical.jpg" alt="Musical">
+                        </div>
+                        <div style="padding: 20px;">
+                            <h4 style="color:#fff; margin:0; font-size:18px;">Neon Lights (Videoclip)</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-col">
+                    <div class="album-card" onclick="openAlbum('comercial')">
+                        <div class="album-img-wrapper">
+                            <img src="images/portfolio/comercial.jpg" alt="Comercial">
+                        </div>
+                        <div style="padding: 20px;">
+                            <h4 style="color:#fff; margin:0; font-size:18px;">Innova Tech (Corporativo)</h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox-overlay">
+        <div class="lightbox-container">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <button class="lightbox-btn lightbox-prev" onclick="changeMedia(-1)">&#10094;</button>
+            <button class="lightbox-btn lightbox-next" onclick="changeMedia(1)">&#10095;</button>
+            
+            <div id="lightbox-content">
+                </div>
+            
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+            <div id="lightbox-counter" class="lightbox-counter"></div>
+        </div>
+    </div>
+
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        // Definición de los contenidos multimedia de cada álbum
+        const albums = {
+            boda: [
+                { type: 'image', url: 'images/portfolio/boda.jpg', title: 'Sesión Principal de Novios' },
+                { type: 'image', url: 'images/portfolio/boda-2.jpg', title: 'Detalles de la Recepción' },
+                { type: 'video', url: 'https://www.w3schools.com/html/mov_bbb.mp4', title: 'Trailer Cinematográfico Oficial (Video)' }
+            ],
+            musical: [
+                { type: 'image', url: 'images/portfolio/musical.jpg', title: 'Detrás de Escena: Iluminación' },
+                { type: 'video', url: 'https://www.w3schools.com/html/movie.mp4', title: 'Videoclip Final Estrenado (Video)' }
+            ],
+            comercial: [
+                { type: 'image', url: 'images/portfolio/comercial.jpg', title: 'Toma Aérea con Dron de la Empresa' }
+            ]
+        };
+
+        let currentAlbum = [];
+        let currentIndex = 0;
+
+        function openAlbum(albumKey) {
+            if (!albums[albumKey]) return;
+            currentAlbum = albums[albumKey];
+            currentIndex = 0;
+            showMedia();
+            document.getElementById('lightbox').style.display = 'block';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+            document.getElementById('lightbox-content').innerHTML = ''; // Detener videos reproduciéndose
+        }
+
+        function showMedia() {
+            const container = document.getElementById('lightbox-content');
+            const item = currentAlbum[currentIndex];
+            
+            if (item.type === 'image') {
+                container.innerHTML = `<img src="${item.url}" class="lightbox-media" alt="Portfolio">`;
+            } else if (item.type === 'video') {
+                container.innerHTML = `<video src="${item.url}" class="lightbox-media" controls autoplay style="width:100%; max-height:70vh; background:#000;"></video>`;
+            }
+
+            document.getElementById('lightbox-caption').innerText = item.title;
+            document.getElementById('lightbox-counter').innerText = `${currentIndex + 1} de ${currentAlbum.length}`;
+        }
+
+        function changeMedia(direction) {
+            if (currentAlbum.length === 0) return;
+            currentIndex += direction;
+            if (currentIndex >= currentAlbum.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = currentAlbum.length - 1;
+            showMedia();
+        }
+
+        // --- SISTEMA INTELIGENTE DE REDIRECCIÓN AUTOMÁTICA ---
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectToOpen = urlParams.get('project');
+            if (projectToOpen) {
+                // Pequeño delay de 300ms para asegurar que todo cargó perfecto antes de lanzar el lightbox
+                setTimeout(() => {
+                    openAlbum(projectToOpen);
+                }, 300);
+            }
+        });
+    </script>
+</body>
+</html>
