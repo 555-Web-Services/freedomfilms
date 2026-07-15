@@ -3146,11 +3146,22 @@ img.u-pull-left {
     display     : flex;
     line-height : 1;
     margin      : 0;
+    
+    /* --- CONFIGURACIÓN DE ESCRITORIO (PC) --- */
+    position    : absolute;
+    right       : var(--gutter); /* Las pega elegantemente al borde derecho de la pantalla */
+    top         : 50%;
+    transform   : translateY(-50%); /* Centrado vertical exacto */
+    z-index     : 105;
 }
 
 .s-header__social li {
     padding-left : 0;
-    margin-right : .8rem;
+    margin-right : 1.5rem; /* Espaciado un poco más amplio y pro para PC */
+}
+
+.s-header__social li:last-child {
+    margin-right : 0;
 }
 
 .s-header__social a {
@@ -3158,14 +3169,19 @@ img.u-pull-left {
 }
 
 .s-header__social svg {
-    height : var(--vspace-0_75);
-    width  : var(--vspace-0_75);
+    height : 1.8rem; /* Tamaño optimizado y estilizado para monitores */
+    width  : 1.8rem;
+    transition : fill 0.3s ease;
 }
 
 .s-header__social svg path {
-    fill : white;
+    fill : rgba(255, 255, 255, 0.6); /* Color gris sutil inicial en PC */
 }
 
+/* Efecto hover profesional: brilla al pasar el mouse por encima */
+.s-header__social a:hover svg path {
+    fill : #ffffff;
+}
 /* --------------------------------------------------------------------
  * ## mobile menu toggle
  * -------------------------------------------------------------------- */
