@@ -3169,8 +3169,8 @@ img.u-pull-left {
 }
 
 .s-header__social svg {
-    height : 5.4rem; /* Tamaño optimizado y estilizado para monitores */
-    width  : 5.4rem;
+    height : 3.6rem; /* Tamaño optimizado y estilizado para monitores */
+    width  : 3.6rem;
     transition : fill 0.3s ease;
 }
 
