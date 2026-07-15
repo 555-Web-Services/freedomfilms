@@ -3283,6 +3283,34 @@ img.u-pull-left {
         transform : translate(3rem, -50%); /* Ajustado para dar holgura al logo extendido */
     }
 
+    /* --- NUEVO AJUSTE: MUEVE LAS REDES AL LADO DE LA HAMBURGUESA --- */
+    .s-header__social {
+        position: absolute !important;
+        right: 8.5rem !important; /* Se posiciona justo a la izquierda del botón de menú (que mide 6.8rem) */
+        top: 50% !important;
+        transform: translateY(-50%) !important; /* Centrado vertical perfecto */
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
+        margin: 0 !important;
+        z-index: 105; /* Por encima de los otros contenedores */
+    }
+
+    .s-header__social li {
+        margin-right: 1.2rem !important; /* Espaciado entre los íconos de redes */
+        padding-left: 0 !important;
+    }
+
+    .s-header__social li:last-child {
+        margin-right: 0 !important;
+    }
+
+    .s-header__social svg {
+        height: 2.2rem !important; /* Ajuste de tamaño ideal para pantallas táctiles */
+        width: 2.2rem !important;
+        fill: #ffffff !important; /* Color blanco para contrastar */
+    }
+
     .s-header__nav {
         transform        : scaleY(0);
         transform-origin : center top;
@@ -3306,21 +3334,18 @@ img.u-pull-left {
         padding     : var(--vspace-0_5) 0;
     }
 
-    .s-header__menu-links,
-    .s-header__social {
-        margin     : 0;
-        transform  : translateY(-2rem);
-        opacity    : 0;
-        visibility : hidden;
-    }
-
     .s-header__menu-links {
-        display       : block;
+        margin      : 0;
+        transform   : translateY(-2rem);
+        opacity     : 0;
+        visibility  : hidden;
+        display     : block;
         margin-bottom : var(--vspace-1);
     }
 
     .s-header__menu-toggle {
         display : block;
+        z-index: 106; /* El botón hamburguesa queda al frente para poder presionarse siempre */
     }
 
     .menu-is-open .s-header {
@@ -3333,8 +3358,7 @@ img.u-pull-left {
         transition-delay : 0s;
     }
 
-    .menu-is-open .s-header__menu-links,
-    .menu-is-open .s-header__social {
+    .menu-is-open .s-header__menu-links {
         transform        : translateY(0);
         opacity          : 1;
         visibility       : visible;
@@ -3342,7 +3366,6 @@ img.u-pull-left {
         transition-delay : .4s;
     }
 }
-
 @media screen and (max-width: 500px) {
     .s-header.sticky {
         --header-height : 76px;
